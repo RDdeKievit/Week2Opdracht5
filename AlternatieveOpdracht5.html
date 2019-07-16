@@ -1,0 +1,48 @@
+<html>
+    <head>   
+        <script>
+        var woordenlijst = ["Pannekoek", "Aardbei", "Brommer", "Kanarie", "Gras", "Vakman", "Lesbienne", "Hond", "Francaise", "Koning"]
+
+        function genereerWoord() {
+           var randomWoord = Math.floor(Math.random() * woordenlijst.length);
+           var eersteLetter = woordenlijst[randomWoord].charAt(0);
+           
+           genereerLetter(woordenlijst[randomWoord]);
+           printWoord(woordenlijst[randomWoord]);
+        }
+
+        function genereerLetter(hetWoord) {
+           var eersteLetter = hetWoord.charAt(0);
+           
+           printLetter(eersteLetter);
+        }
+
+        function printWoord(hetWoord){
+            console.log(hetWoord);
+            var woordDiv = document.getElementById("woorddiv");
+            woordDiv.innerHTML = hetWoord;
+        }
+
+        function printLetter(deLetter){
+            console.log(deLetter);
+            var letterDiv = document.getElementById("letterdiv");
+            letterDiv.innerHTML = deLetter;
+        }
+
+        </script>
+        <style>
+        div {
+           border: 2px solid red;
+        }
+        </style>
+    </head>
+    <body>
+        <h2> Random woord generator </h2>
+
+        <div id=woorddiv> - </div>
+        ...begint met letter:<br>
+        <div id=letterdiv> - </div><br>
+
+        <button onclick=genereerWoord()> Klik mij </button>
+    </body>
+</html>
