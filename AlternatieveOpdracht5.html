@@ -1,28 +1,35 @@
 <html>
     <head>   
         <script>
+        // globale variabele; niet volstrekt noodzakelijk in dit geval, maar denk de beste plaats
         var woordenlijst = ["Pannekoek", "Aardbei", "Brommer", "Kanarie", "Gras", "Vakman", "Lesbienne", "Hond", "Francaise", "Koning"]
-
-        function genereerWoord() {
-           var randomWoord = Math.floor(Math.random() * woordenlijst.length);
-           var eersteLetter = woordenlijst[randomWoord].charAt(0);
+        
+        /* genereerWoord() haalt random woord uit array woordenlijst
+        & geeft het random woord mee aan genereerLetter() en printwoord()
+        */
+        function genereerWoord(){
+            var randomWoord = Math.floor(Math.random() * woordenlijst.length);
            
-           genereerLetter(woordenlijst[randomWoord]);
-           printWoord(woordenlijst[randomWoord]);
+            genereerLetter(woordenlijst[randomWoord]);
+            printWoord(woordenlijst[randomWoord]);
+        }
+        /* genereerLetter() haalt de eerste letter uit het meegegeven woord
+        & geeft de letter mee aan printLetter()
+        */
+        function genereerLetter(hetWoord){
+            console.log(hetWoord);
+            var eersteLetter = hetWoord.charAt(0);
+           
+            printLetter(eersteLetter);
         }
 
-        function genereerLetter(hetWoord) {
-           var eersteLetter = hetWoord.charAt(0);
-           
-           printLetter(eersteLetter);
-        }
-
+        // printWoord() print het meegekregen woord in woorddiv
         function printWoord(hetWoord){
             console.log(hetWoord);
             var woordDiv = document.getElementById("woorddiv");
             woordDiv.innerHTML = hetWoord;
         }
-
+        // printLetter() print meegekregen letter in letterdiv
         function printLetter(deLetter){
             console.log(deLetter);
             var letterDiv = document.getElementById("letterdiv");
